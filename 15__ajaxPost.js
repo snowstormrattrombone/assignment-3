@@ -1,12 +1,12 @@
 function sendPostRequest() {
   // Prepare the JSON payload
-  var payload = {
+  const payload = {
     name: "John Doe",
     email: "johndoe@example.com",
   };
 
   // Set the AJAX request parameters
-  var requestOptions = {
+  const requestOptions = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
