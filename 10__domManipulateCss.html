@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/milligram.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div  class="card">
+        <p class="text">
+            Ostad is a skill development platform focusing on live learning. We have 30,000+ users on our platform and 4500+ learners who graduated and are still learning in Ostad.
+        </p>
+        <button class="btn">Click Me</button>
+    </div>
+
+
+    <script>
+        const text = document.querySelector('.text');
+        const btn = document.querySelector('.btn');
+
+        function changeBackgroundColor(){
+            text.classList.add('highlight')
+        }
+        
+        btn.addEventListener('click', changeBackgroundColor)
+    </script>
+
+
+</body>
+</html>

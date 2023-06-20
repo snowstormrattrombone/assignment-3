@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/milligram.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div  class="card">
+        <p class="text">
+            Ostad is a skill development platform focusing on live learning. We have 30,000+ users on our platform and 4500+ learners who graduated and are still learning in Ostad.
+        </p>
+        <button class="btn">Click Me</button>
+    </div>
+    
+
+    <script>
+        text = document.querySelector('.text');
+        btn = document.querySelector('.btn');
+
+        btn.addEventListener("click", function(){
+            text.innerText = 'We provide skill development opportunities to university students, job holders, job seekers, and freelancers who want to learn or develop skills from the best instructors.'
+            btn.innerText = 'Button Clicked'
+        });
+    </script>
+</body>
+</html>

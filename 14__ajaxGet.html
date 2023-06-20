@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/milligram.css">
+    <title>Document</title>
+
+    <style>
+        .item{
+            width: 300px;
+            background-color: antiquewhite;
+            margin: 10px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="itemList">
+
+    </div>
+
+    <script>
+         const api = 'https://jsonplaceholder.typicode.com/users';
+         const ItemDiv = document.getElementById('itemList');
+
+            async function getData(url) {
+
+                await fetch(url)
+                    .then(data => data.json())
+                    .then(item => {
+                        item.forEach(element => {
+                            console.log(element);
+                            ItemDiv.innerHTML += `
+                                <div class="item">
+                                    <p>Name: ${element.name}</p>
+                                    <p>Email: ${element.email}</p>
+                                    <p>City: ${element.address['city']}</p>
+                                </div>
+                            `
+                        });
+                    })
+            }
+
+            getData(api)
+    </script>
+</body>
+</html>

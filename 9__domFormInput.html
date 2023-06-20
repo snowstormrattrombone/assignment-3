@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/milligram.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <form id="my-form" onsubmit="validateForm(event)">
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name" required>
+          <span id="name-error" class="error-message"></span>
+        </div>
+    
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" required>
+          <span id="email-error" class="error-message"></span>
+        </div>
+    
+        <div>
+          <label for="password">Password:</label>
+          <input type="password" id="password" required>
+          <span id="password-error" class="error-message"></span>
+        </div>
+    
+        <div>
+          <label for="confirm-password">Confirm Password:</label>
+          <input type="password" id="confirm-password" required>
+          <span id="confirm-password-error" class="error-message"></span>
+        </div>
+    
+        <button type="submit">Submit</button>
+      </form>
+    
+      <script>
+        function validateForm(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Clear any previous error messages
+            clearErrors();
+
+            // Get form field values
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm-password").value;
+
+            // Validate name
+            if (name === "" || !/^[a-zA-Z]+$/.test(name)) {
+                showError("name-error", "Name should not be empty and should contain only letters.");
+            }
+
+            // Validate email
+            if (!/\S+@\S+\.\S+/.test(email)) {
+                showError("email-error", "Email should be a valid email address.");
+            }
+
+            // Validate password
+            if (password.length < 8 || !/[a-z]/.test(password) || !/[A-Z]/.test(password) || !/\d/.test(password)) {
+                showError("password-error", "Password should have a minimum length of 8 characters and contain at least one uppercase letter, one lowercase letter, and one digit.");
+            }
+
+            // Validate confirm password
+            if (confirmPassword !== password) {
+                showError("confirm-password-error", "Confirm Password should match the Password field.");
+            }
+
+            // If no errors, submit the form
+            if (noErrors()) {
+                document.getElementById("my-form").submit();
+            }
+        }
+
+        function showError(elementId, message) {
+          var errorElement = document.getElementById(elementId);
+          errorElement.textContent = message;
+        }
+
+        function clearErrors() {
+          var errorElements = document.getElementsByClassName("error-message");
+          for (var i = 0; i < errorElements.length; i++) {
+              errorElements[i].textContent = "";
+          }
+        }
+
+        function noErrors() {
+          var errorElements = document.getElementsByClassName("error-message");
+          for (var i = 0; i < errorElements.length; i++) {
+              if (errorElements[i].textContent !== "") {
+              return false;
+              }
+          }
+          return true;
+        }
+      </script>
+</body>
+</html>

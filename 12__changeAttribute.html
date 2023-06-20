@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/milligram.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="imgBox">
+        <img id="myImage" src="image/1.jpg" alt="house">
+    </div>
+    <button id="btn">Click Me</button>
+
+
+    <script>
+        const myImage = document.getElementById('myImage');
+        const btn = document.getElementById('btn');
+        
+        // Function to change the image source
+        function changeImageSrc(){
+            myImage.src = 'image/2.jpg'
+        }
+
+        // Add event listener to detect mouseover
+        btn.addEventListener('click', changeImageSrc)
+    </script>
+</body>
+</html>

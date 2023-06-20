@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/milligram.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="imgBox">
+        <img id="myImage" src="image/1.jpg" alt="house">
+    </div>
+
+
+
+    <script>
+        // 7.JS Common Events:
+        
+        // a. Function to display an alert with click coordinates
+        function displayClickCoordinates(event) {
+          const x = event.pageX;
+          const y = event.pageY;
+          alert(`Clicked at coordinates (x: ${x}, y: ${y})`);
+        }
+
+        // Attach click event listener to the document
+        document.addEventListener('click', displayClickCoordinates);
+
+
+        // b. Function to display an alert with the key code
+        function displayKeyCode(event) {
+          const keyCode = event.keyCode;
+          alert(`Key code: ${keyCode}`);
+        }
+
+        // Attach keydown event listener to the document
+        document.addEventListener('keydown', displayKeyCode);
+
+
+
+        // c. Function to change image on mouseover
+        const myImage = document.getElementById('myImage');
+        
+        // Function to change the image source
+        function changeImageSrc(){
+            myImage.src = 'image/2.jpg'
+        }
+
+        // Add event listener to detect mouseover
+        myImage.addEventListener('mouseover', changeImageSrc)
+
+    </script>
+</body>
+</html>
